@@ -12,4 +12,14 @@ router.post('/', async (req, res) => {
 	}
 });
 
+router.get('/', async (req, res) => {
+	try {
+		const words = await Words.retrieve();
+		res.status(200).json(words);
+	} catch (err) {
+		console.log(err);
+		res.status(500).json({ message: 'Server error retrieving words' });
+	}
+});
+
 module.exports = router;

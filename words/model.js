@@ -12,15 +12,12 @@ const retrieve = () => {
 };
 
 const update = async (id, word) => {
-	const count = await db('swear')
+	await db('swear')
 		.where({ id })
 		.update(word);
-	if (count > 0) {
-		return db('swear')
-			.where({ id })
-			.first();
-	}
-	return null;
+	return db('swear')
+		.where({ id })
+		.first();
 };
 
 const remove = id => {
