@@ -1,7 +1,7 @@
 exports.up = function(knex) {
 	return knex.schema.createTable('swear', table => {
 		table.increments();
-		table.string('word').notNullable();
+		table.string('word');
 	});
 };
 
